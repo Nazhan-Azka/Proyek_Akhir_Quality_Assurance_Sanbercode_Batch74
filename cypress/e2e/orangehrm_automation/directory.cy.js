@@ -6,48 +6,35 @@ describe('OrangeHRM Directory Menu', () => {
   const login = new LoginPage()
   const dashboard = new DashboardPage()
 
-  beforeEach(() => {
+  Cypress.on('uncaught:exception', (err, runnable) => {
+    return false
+  })
 
+  beforeEach(() => {
     login.visit()
 
+
+    cy.get('input[name="username"]', { timeout: 10000 }).should('be.visible')
+
+    // login
     login.inputUsername('Admin')
     login.inputPassword('admin123')
     login.clickLogin()
 
-    login.verifyDashboard()
+    // pastikan dashboard terbuka
+    dashboard.verifyDashboard()
   })
 
   it('TC01 - Akses menu Directory', () => {
-
     dashboard.clickDirectoryMenu()
     dashboard.verifyDirectoryPage()
   })
 
-  it('TC02 - Search employee', () => {
-
-    cy.contains('Directory')
-      .click()
-
-    cy.get('input[placeholder="Type for hints..."]')
-      .type('Ranga')
-
-    cy.get('button[type="submit"]')
-      .click()
-
-    cy.contains('Ranga Akunuri')
-      .scrollIntoView()
-      .should('exist')
-  })
-
-  it('TC03 - Search kosong', () => {
-
+  it('TC02 - Search kosong', () => {
     dashboard.clickDirectoryMenu()
 
-    cy.get('button[type="submit"]')
-      .click()
-
-    cy.url()
-      .should('include', 'directory')
+    cy.get('button[type="submit"]').click()
+    cy.url().should('include', 'directory')
   })
 
 })

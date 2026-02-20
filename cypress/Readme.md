@@ -11,10 +11,8 @@ Project ini dibuat menggunakan:
 1. Cypress
 2. Page Object Model (POM)
 3. Intercept (Network Validation)
-4. UI Automation
 
 📌 Features Covered
-
 Automation dilakukan pada fitur berikut:
 
 ✅ Login
@@ -88,7 +86,7 @@ TC04 – Widget "Buzz Latest Postsd" visible
 
 TC04 – Logout berhasil 
 
-📁 DIRECTORY
+📁 DIRECTORY Fitur
 
 TC01 – Akses menu Directory
 
@@ -97,7 +95,7 @@ TC02 – Search employee
 TC03 – Search tanpa input
 
 
-👨‍💼 RECRUITMENT
+👨‍💼 RECRUITMENT Fitur
 
 TC01 – Akses menu Recruitment
 
